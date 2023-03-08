@@ -19,7 +19,7 @@ import {
 } from "@react-navigation/native"
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view"
 import { createStackNavigator } from "@react-navigation/stack"
-import { slice } from "./auth"
+// import { slice } from "./auth"
 import { styles } from "./screens/styles"
 import { SignInTab, SignupTab } from "./screens/loginsignup"
 import PasswordReset from "./screens/reset"
@@ -278,8 +278,8 @@ Login.propTypes = {
 }
 export default {
   title: "Login",
-  navigator: Login,
-  slice: slice
+  navigator: Login
+  // slice: slice
 }
 
 const _styles = StyleSheet.create({

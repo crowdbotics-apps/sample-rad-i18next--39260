@@ -13,8 +13,8 @@ import {
   View
 } from "react-native"
 import { useDispatch, useSelector } from "react-redux"
-import { loginRequest, signupRequest } from "../auth"
-import { validateEmail } from "../constants"
+// import { loginRequest, signupRequest } from "../auth"
+// import { validateEmail } from "../constants"
 import { buttonStyles, Color, textInputStyles } from "./styles" // Custom Text Input
 import { useTranslation } from "react-i18next"
 
@@ -59,7 +59,7 @@ export const SignupTab = ({ navigation, route }) => {
     email: "",
     password: ""
   })
-  const { api } = useSelector(state => state.Login)
+  // const { api } = useSelector(state => state.Login)
   const dispatch = useDispatch()
   const { t, i18n } = useTranslation()
 
@@ -69,7 +69,7 @@ export const SignupTab = ({ navigation, route }) => {
       password: ""
     })
 
-    if (!validateEmail.test(email)) {
+    if (!email) {
       return setValidationError({
         email: t("SignUp.EmailValidationText"),
         password: ""
@@ -135,14 +135,14 @@ export const SignupTab = ({ navigation, route }) => {
       </View>
       <Button
         title={t("SignUp.SignUpButtonText")}
-        loading={api.loading === "pending"}
+        // loading={api.loading === "pending"}
         onPress={onSignupPress}
         buttonStyle={buttonStyle}
         buttonTextStyle={buttonTextStyle}
       />
-      {!!api.error && (
+      {/* {!!api.error && (
         <Text style={textInputStyles.error}>{api.error.message}</Text>
-      )}
+      )} */}
     </KeyboardAvoidingView>
   )
 }
@@ -156,12 +156,12 @@ export const SignInTab = ({ navigation, route }) => {
     email: "",
     password: ""
   })
-  const { api } = useSelector(state => state.Login)
+  // const { api } = useSelector(state => state.Login)
   const dispatch = useDispatch()
   const { t, i18n } = useTranslation()
 
   const onSigninPress = async () => {
-    if (!validateEmail.test(email)) {
+    if (!email) {
       return setValidationError({
         email: "Please enter a valid email address.",
         password: ""
@@ -216,14 +216,14 @@ export const SignInTab = ({ navigation, route }) => {
 
       <Button
         title={t("Login.SignInButtonText")}
-        loading={api.loading === "pending"}
+        // loading={api.loading === "pending"}
         onPress={onSigninPress}
         buttonStyle={buttonStyle}
         buttonTextStyle={buttonTextStyle}
       />
-      {!!api.error && (
+      {/* {!!api.error && (
         <Text style={textInputStyles.error}>{api.error.message}</Text>
-      )}
+      )} */}
       <View style={_styles.zlhFqcWb}>
         <TouchableOpacity
           activeOpacity={0.7}

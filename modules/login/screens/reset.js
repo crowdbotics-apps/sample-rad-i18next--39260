@@ -13,8 +13,8 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { useSelector, useDispatch } from "react-redux"
 import { unwrapResult } from "@reduxjs/toolkit"
 import { styles, textInputStyles } from "./styles"
-import { validateEmail } from "../constants"
-import { resetPassword } from "../auth"
+// import { validateEmail } from "../constants"
+// import { resetPassword } from "../auth"
 import { useTranslation } from "react-i18next"
 
 const PasswordRecover = ({ navigation, route }) => {
@@ -22,12 +22,12 @@ const PasswordRecover = ({ navigation, route }) => {
   const { LOGO_IMAGE, textInputStyle, buttonStyle, buttonTextStyle } =
     route.params
   const [email, setEmail] = useState("")
-  const { api } = useSelector(state => state.Login)
+  // const { api } = useSelector(state => state.Login)
   const dispatch = useDispatch()
   const { t, i18n } = useTranslation()
 
   const handlePasswordReset = () => {
-    if (!validateEmail.test(email)) {
+    if (!email) {
       return Alert.alert("Error", "Please enter a valid email address.")
     }
 
@@ -89,13 +89,13 @@ const PasswordRecover = ({ navigation, route }) => {
             autoCapitalize="none"
           />
         </View>
-        {!!api.error && (
+        {/* {!!api.error && (
           <Text style={[textInputStyles.error, _styles.tTTnBAXa]}>
             {api.error.message}
           </Text>
-        )}
+        )} */}
         <TouchableOpacity
-          disabled={api.loading === "pending"}
+          // disabled={api.loading === "pending"}
           activeOpacity={0.7}
           style={[styles.actionButon, buttonStyle]}
           onPress={handlePasswordReset}
