@@ -1,14 +1,11 @@
-import { StyleSheet, Dimensions } from "react-native";
-const {
-  width,
-  height
-} = Dimensions.get("window");
-const guidelineBaseWidth = 350;
-const guidelineBaseHeight = 680;
+import { StyleSheet, Dimensions } from "react-native"
+const { width, height } = Dimensions.get("window")
+const guidelineBaseWidth = 350
+const guidelineBaseHeight = 680
 
-const scale = size => width / guidelineBaseWidth * size;
+const scale = size => (width / guidelineBaseWidth) * size
 
-const scaleVertical = size => height / guidelineBaseHeight * size;
+const scaleVertical = size => (height / guidelineBaseHeight) * size
 
 export const Color = {
   malibu: "#46E1FD",
@@ -19,7 +16,8 @@ export const Color = {
   facebook: "#3b5998",
   google: "#4285F4",
   red: "red"
-};
+}
+
 export const styles = StyleSheet.create({
   screen: {
     flexDirection: "column",
@@ -159,8 +157,23 @@ export const styles = StyleSheet.create({
   resetText: {
     color: "#fff",
     fontSize: 15
+  },
+  actionButonSmall: {
+    backgroundColor: Color.malibu,
+    borderWidth: 0,
+    marginLeft: scale(10),
+    marginRight: scale(10),
+    marginTop: scaleVertical(10),
+    marginBottom: scaleVertical(10),
+    borderRadius: 5,
+    height: 44,
+    width: "40%",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row"
   }
-});
+})
+
 export const buttonStyles = {
   viewStyle: {
     backgroundColor: Color.malibu,
@@ -178,7 +191,8 @@ export const buttonStyles = {
     marginHorizontal: 20,
     marginVertical: 10
   }
-};
+}
+
 export const textInputStyles = {
   textInput: {
     borderColor: Color.steel,
@@ -199,4 +213,4 @@ export const textInputStyles = {
     fontSize: 9,
     marginLeft: 12
   }
-};
+}
